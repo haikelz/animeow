@@ -18,7 +18,7 @@ const SearchManga = () => {
   const fetchManga = async (query) => {
     try {
       let response = await fetch(`${apiSearch}?q=${query}&order_by=title&sort=asc`)
-      .then(res => res.json());
+        .then(res => res.json());
 
       setMangaList(response.data);
     } catch (err) {
