@@ -12,8 +12,8 @@ const Manga = () => {
                 </h1>
             </div>
             <div className="flex justify-center text-xl items-center mt-4">
-                <Link to="/manga/searchmanga"><button className="bg-blue-500 px-6 py-2 font-bold tracking-wide rounded-full mr-2 hover:bg-gray-300 hover:text-gray-900 transition duration-300">Search</button></Link>
-                <Link to="/manga/topmanga"><button className="bg-gray-300 px-6 py-2 font-bold tracking-wide rounded-full ml-2 text-gray-900 hover:bg-red-400 hover:text-gray-200 transition duration-300">Top</button></Link>
+                <Link to="/manga/searchmanga"><button className="bg-blue-500 px-6 py-2 font-bold tracking-wide rounded-md mr-2 hover:bg-gray-300 hover:text-gray-900 transition duration-300">Search</button></Link>
+                <Link to="/manga/topmanga"><button className="bg-gray-300 px-6 py-2 font-bold tracking-wide rounded-md ml-2 text-gray-900 hover:bg-red-400 hover:text-gray-200 transition duration-300">Top</button></Link>
             </div>
         </section>
     )

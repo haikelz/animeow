@@ -12,8 +12,8 @@ const TopMangaCards = (props) => {
           </div>
           <div className="flex mt-2 px-3 pb-3 flex-col justify-start">
             <h1 className="text-xl font-bold">{top.title}</h1>
-            <p className="mt-2 font-semibold">Rank: <span className="font-medium">{top.rank}</span></p>
-            <p className="font-semibold">Popularity: <span className="font-medium">{top.popularity}</span></p>
+            <p className="text-base mt-2 font-semibold text-yellow-300">Rank: {top.rank}</p>
+            <p className="text-sm font-medium">Popularity: {top.popularity}</p>
           </div>
         </div>
         ))}
