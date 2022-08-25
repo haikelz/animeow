@@ -10,15 +10,15 @@ import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/700.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const newClient = new QueryClient();
+  const newClient: QueryClient = new QueryClient();
 
   return (
     <QueryClientProvider client={newClient}>
-      <ChakraProvider theme={Theme}>
-        <Provider>
+      <Provider>
+        <ChakraProvider theme={Theme}>
           <Component {...pageProps} />
-        </Provider>
-      </ChakraProvider>
+        </ChakraProvider>
+      </Provider>
     </QueryClientProvider>
   );
 };

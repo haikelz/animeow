@@ -43,7 +43,7 @@ const ListAnimeCard = ({ filteredData }: FilteredDataAnime) => {
               </Text>
               <Text fontSize="lg" fontWeight="semibold">
                 {`${
-                  animeList.season === null
+                  animeList.season == null
                     ? ""
                     : animeList.season.charAt(0).toUpperCase() +
                       `${animeList.season}`.slice(1)

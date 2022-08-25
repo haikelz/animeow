@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async (link: string) => {
-    const response = await fetch(`https://api.jikan.moe/v4${link}`);
+    const response: Response = await fetch(`https://api.jikan.moe/v4${link}`);
     const data = await response.json();
 
     return data.data;

@@ -2,7 +2,7 @@ import { useScroll } from "src/hooks/useScroll";
 import { backToTopAnimation } from "src/utils/animation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@chakra-ui/react";
-import { ArrowUpIcon } from "@chakra-ui/icons";
+import { ChevronUpIcon } from "@chakra-ui/icons";
 import { LinkRef, OffsetTop } from "src/interfaces";
 
 const BackToTop = ({ linkRef }: LinkRef) => {
@@ -22,7 +22,7 @@ const BackToTop = ({ linkRef }: LinkRef) => {
             colorScheme="blue"
             onClick={() => handleClick(linkRef.current)}
           >
-            <ArrowUpIcon fontSize="2xl" />
+            <ChevronUpIcon fontSize="2xl" />
           </Button>
         </motion.div>
       )}

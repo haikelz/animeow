@@ -1,11 +1,9 @@
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
-import DropdownMenu from "../dropdownMenu";
-
-type Bg = string | string;
+import DarkModeButton from "../darkModeButton";
 
 const Header = () => {
-  const bg: Bg = useColorModeValue("gray.200", "gray.900");
+  const bg: string | string = useColorModeValue("gray.200", "gray.900");
 
   return (
     <Flex
@@ -20,15 +18,15 @@ const Header = () => {
       <Link href="/" passHref>
         <Text
           fontWeight="bold"
-          cursor="pointer"
           fontSize="3xl"
           bgGradient="linear(to-r, twitter.600, twitter.800)"
           bgClip="text"
+          cursor="pointer"
         >
           Animeow
         </Text>
       </Link>
-      <DropdownMenu />
+      <DarkModeButton />
     </Flex>
   );
 };
