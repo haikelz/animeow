@@ -1,6 +1,10 @@
 import { Box, Text } from "@chakra-ui/react";
 
-const NotFoundInput = ({ type }: any) => {
+type TypeInput = {
+  type: string;
+};
+
+const NotFoundInput = ({ type }: TypeInput) => {
   return (
     <Box mt="3">
       <Text fontWeight="bold" fontSize="2xl">

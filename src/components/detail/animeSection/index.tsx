@@ -24,7 +24,7 @@ const DetailAnimeSection = ({ data }: DetailAnime) => {
           fontWeight="medium"
           fontSize="lg"
           letterSpacing="wide"
-          w={{ base: "100%", lg: "40%" }}
+          w={{ base: "full", lg: "40%" }}
         >
           {data.synopsis.replace("[Written by MAL Rewrite]", "")}
         </Text>

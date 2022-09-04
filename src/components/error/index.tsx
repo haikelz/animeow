@@ -9,7 +9,7 @@ const ErrorPage = () => {
       </Head>
       <Container maxW="full">
         <Flex justify="center" alignItems="center" minH="100vh">
-          <Text fontWeight={"bold"} fontSize={"3xl"}>
+          <Text textAlign="center" fontWeight="bold" fontSize="3xl">
             Error!
           </Text>
         </Flex>

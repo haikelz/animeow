@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
-const fetchData = async (link: string) => {
+type FetchData = (link: string) => Promise<any>;
+
+const fetchData: FetchData = async (link: string) => {
     const response: Response = await fetch(`https://api.jikan.moe/v4${link}`);
     const data = await response.json();
 

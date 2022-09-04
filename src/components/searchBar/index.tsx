@@ -1,17 +1,12 @@
 import { Input } from "@chakra-ui/react";
+import { Event } from "src/interfaces";
 
 type SetSearch = {
   setSearch: (value: string) => void;
 };
 
-type Event = {
-  target: {
-    value: string;
-  };
-};
-
 const SearchBar = ({ setSearch }: SetSearch) => {
-  const handleChange = (event: Event) => {
+  const handleChange = <T extends Event>(event: T) => {
     setSearch(event.target.value);
   };
 

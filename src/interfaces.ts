@@ -1,8 +1,9 @@
+import { SetStateAction } from "jotai";
 import { ReactNode } from "react";
 
 export interface Children {
     children: ReactNode[] | JSX.Element;
-    title?: string;
+    title: string;
 }
 
 export interface Context {
@@ -43,22 +44,9 @@ export interface DetailManga {
     };
 }
 
-export interface DetailCharacter {
-    data: {
-        name: string;
-        name_kanji: string;
-        images: {
-            webp: {
-                image_url: string;
-            };
-        };
-        about: string;
-    };
-}
-
 export interface Page {
     page: number;
-    setPage: (page: number) => void;
+    setPage: (page: SetStateAction<number>) => void;
 }
 
 export interface FilteredDataManga {
@@ -74,7 +62,7 @@ export interface FilteredDataManga {
                 { title: string }
             ];
             mal_id: string;
-            title: string;
+            title: string | any | undefined;
             title_japanese: string;
             year: string;
             rank: string;
@@ -82,7 +70,8 @@ export interface FilteredDataManga {
             volumes: string;
             status: string;
         }
-    ]
+    ];
+    search: string;
 }
 
 export interface FilteredDataAnime {
@@ -94,39 +83,18 @@ export interface FilteredDataAnime {
                 };
             };
             score: number;
-            titles: [
-                {
-                    title: string;
-                }
-            ];
             mal_id: string;
-            title: string;
+            title: string | any | undefined;
             title_japanese: string;
             season: string;
             year: string;
+            status: string;
             rank: string;
             episodes: string;
         }
     ];
+    search: string
 }
-
-export interface FilteredDataCharacters {
-    filteredData: [
-        charactersList: {
-            name: string;
-            name_kanji: string;
-            about: string;
-            mal_id: string;
-            images: {
-                webp: {
-                    image_url: string;
-                }
-            }
-            favorites: string;
-        }
-    ]
-}
-
 
 export interface OffsetTop {
     offsetTop: any;
@@ -137,3 +105,9 @@ export interface LinkRef {
         current: any;
     };
 };
+
+export interface Event {
+    target: {
+        value: string;
+    };
+}

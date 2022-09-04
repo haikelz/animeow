@@ -1,12 +1,19 @@
-import { Text, Box, Flex, useColorModeValue } from "@chakra-ui/react";
+import {
+  Text,
+  Box,
+  Flex,
+  useColorModeValue,
+  Highlight,
+} from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { FilteredDataManga } from "src/interfaces";
 import Image from "next/image";
 import Link from "next/link";
+import reactStringReplace from "react-string-replace";
 
 type Bg = string | string;
 
-const ListMangaCard = ({ filteredData }: FilteredDataManga) => {
+const ListMangaCard = ({ filteredData, search }: FilteredDataManga) => {
   const bg: Bg = useColorModeValue("twitter.300", "gray.700");
   const bgHover: Bg = useColorModeValue("twitter.400", "twitter.600");
 
@@ -15,6 +22,7 @@ const ListMangaCard = ({ filteredData }: FilteredDataManga) => {
       {filteredData.map((mangaList) => (
         <Link href={`/manga/detail/${mangaList.mal_id}`} key={mangaList.mal_id}>
           <Flex
+            shadow="lg"
             bg={bg}
             rounded="md"
             cursor="pointer"
@@ -39,7 +47,21 @@ const ListMangaCard = ({ filteredData }: FilteredDataManga) => {
                 Rank {mangaList.rank}
               </Text>
               <Text fontWeight="bold" fontSize="2xl">
-                {mangaList.title}
+                {search
+                  ? reactStringReplace(
+                      mangaList.title,
+                      search,
+                      (match: string, index: number) => (
+                        <Highlight
+                          query={match}
+                          key={index++}
+                          styles={{ px: "1", py: "1", bg: "orange.100" }}
+                        >
+                          {match}
+                        </Highlight>
+                      )
+                    )
+                  : mangaList.title}
               </Text>
               <Box mt="1.5">
                 <Text fontWeight="medium">

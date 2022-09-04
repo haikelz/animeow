@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
 import { useFetch } from "src/hooks/useFetch";
 import { pageAnimeAtom } from "src/store/page.store";
-import { searchAnimeAtom, typeAtom } from "src/store/search.store";
+import { typeAtom } from "src/store/type.store";
 import type { NextPage } from "next";
 import ErrorPage from "../components/error";
 import Layout from "../components/layout";
@@ -18,8 +19,9 @@ type Value = { title: string; name: string };
 
 const Home: NextPage = () => {
   const [page, setPage] = useAtom(pageAnimeAtom);
-  const [search, setSearch] = useAtom(searchAnimeAtom);
+  const [search, setSearch] = useState("");
   const [type, setType] = useAtom(typeAtom);
+  // const dataRegex: RegExp = new RegExp(search, "gi");
 
   const { data, isLoading, isError } = useFetch(`/top/${type}?page=${page}`);
 
@@ -60,9 +62,9 @@ const Home: NextPage = () => {
           gap="6"
         >
           {type === "anime" ? (
-            <ListAnimeCard filteredData={filteredData} />
+            <ListAnimeCard search={search} filteredData={filteredData} />
           ) : (
-            <ListMangaCard filteredData={filteredData} />
+            <ListMangaCard search={search} filteredData={filteredData} />
           )}
         </Grid>
       ) : (
