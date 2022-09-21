@@ -1,6 +1,6 @@
 import { Stack, Text } from "@chakra-ui/react";
 import { NextRouter, useRouter } from "next/router";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import Layout from "src/components/layout";
 
 const NotFoundPage = () => {
@@ -23,4 +23,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default memo(NotFoundPage);

@@ -1,3 +1,1 @@
-export const MenuLink = [
-    { key: 1, link: "/", name: "Home" },
-]
+export const MenuLink = [{ key: 1, link: "/", name: "Home" }];

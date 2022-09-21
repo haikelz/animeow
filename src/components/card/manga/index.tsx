@@ -53,9 +53,9 @@ const ListMangaCard = ({ filteredData, search }: FilteredDataManga) => {
                       search,
                       (match: string, index: number) => (
                         <Highlight
-                          query={match}
                           key={index++}
-                          styles={{ px: "1", py: "1", bg: "orange.100" }}
+                          query={match}
+                          styles={{ px: 0.5, bg: "red.100" }}
                         >
                           {match}
                         </Highlight>

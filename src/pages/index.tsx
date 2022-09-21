@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
 import { useFetch } from "src/hooks/useFetch";
@@ -21,7 +21,6 @@ const Home: NextPage = () => {
   const [page, setPage] = useAtom(pageAnimeAtom);
   const [search, setSearch] = useState("");
   const [type, setType] = useAtom(typeAtom);
-  // const dataRegex: RegExp = new RegExp(search, "gi");
 
   const { data, isLoading, isError } = useFetch(`/top/${type}?page=${page}`);
 
@@ -82,4 +81,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

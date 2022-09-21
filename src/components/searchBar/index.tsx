@@ -12,6 +12,7 @@ const SearchBar = ({ setSearch }: SetSearch) => {
 
   return (
     <Input
+      variant="filled"
       onChange={handleChange}
       placeholder="Search...."
       border="2px"

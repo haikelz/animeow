@@ -3,12 +3,15 @@ import { useQuery } from "@tanstack/react-query";
 type FetchData = (link: string) => Promise<any>;
 
 const fetchData: FetchData = async (link: string) => {
-    const response: Response = await fetch(`https://api.jikan.moe/v4${link}`);
-    const data = await response.json();
+  const response: Response = await fetch(`https://api.jikan.moe/v4${link}`);
+  const data = await response.json();
 
-    return data.data;
-}
+  return data.data;
+};
 
 export const useFetch = (link: string) => {
-    return useQuery(["fetch data", link], () => fetchData(link), { keepPreviousData: true, refetchOnWindowFocus: false });
-}
+  return useQuery(["fetch data", link], () => fetchData(link), {
+    keepPreviousData: true,
+    refetchOnWindowFocus: false,
+  });
+};

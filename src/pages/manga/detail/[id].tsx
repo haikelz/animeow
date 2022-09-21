@@ -1,5 +1,6 @@
 import { NextRouter, useRouter } from "next/router";
 import { useFetch } from "src/hooks/useFetch";
+import { memo } from "react";
 import Layout from "src/components/layout";
 import Loading from "src/components/loading";
 import ErrorPage from "src/components/error";
@@ -21,4 +22,4 @@ const DetailManga = () => {
   );
 };
 
-export default DetailManga;
+export default memo(DetailManga);

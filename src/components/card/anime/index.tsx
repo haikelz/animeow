@@ -55,7 +55,7 @@ const ListAnimeCard = ({ filteredData, search }: FilteredDataAnime) => {
                         <Highlight
                           query={match}
                           key={index++}
-                          styles={{ px: "1", py: "1", bg: "orange.100" }}
+                          styles={{ px: "0.5", bg: "orange.100" }}
                         >
                           {match}
                         </Highlight>
