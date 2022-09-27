@@ -6,7 +6,7 @@ type TypeInput = {
 
 const NotFoundInput = ({ type }: TypeInput) => {
   return (
-    <Box mt="3">
+    <Box mt="3" textAlign="center">
       <Text fontWeight="bold" fontSize="2xl">
         {type} that you search is not found
       </Text>

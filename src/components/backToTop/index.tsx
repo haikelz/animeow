@@ -9,7 +9,11 @@ const BackToTop = ({ linkRef }: LinkRef) => {
   const [scroll] = useScroll();
 
   const handleClick = <T extends OffsetTop>(ref: T) => {
-    window.scrollTo({ top: ref.offsetTop, left: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: ref.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   const height: number = 100;

@@ -2,8 +2,8 @@ import { memo, useState } from "react";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
 import { useFetch } from "src/hooks/useFetch";
-import { pageAnimeAtom } from "src/store/page.store";
-import { typeAtom } from "src/store/type.store";
+import { pageAnimeAtom } from "src/store";
+import { typeAtom } from "src/store";
 import type { NextPage } from "next";
 import ErrorPage from "../components/error";
 import Layout from "../components/layout";
@@ -11,15 +11,15 @@ import Loading from "../components/loading";
 import SearchBar from "src/components/searchBar";
 import PreviousButton from "src/components/previousButton";
 import NextButton from "src/components/nextButton";
-import ListAnimeCard from "src/components/card/anime";
+import ListAnimeCard from "src/components/listCard/anime";
 import NotFoundInput from "src/components/notFoundInput";
-import ListMangaCard from "src/components/card/manga";
+import ListMangaCard from "src/components/listCard/manga";
 
 type Value = { title: string; name: string };
 
 const Home: NextPage = () => {
-  const [page, setPage] = useAtom(pageAnimeAtom);
   const [search, setSearch] = useState("");
+  const [page, setPage] = useAtom(pageAnimeAtom);
   const [type, setType] = useAtom(typeAtom);
 
   const { data, isLoading, isError } = useFetch(`/top/${type}?page=${page}`);
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
           )}
         </Grid>
       ) : (
-        <NotFoundInput type="Anime" />
+        <NotFoundInput type={type === "anime" ? "Anime" : "Manga"} />
       )}
       <Flex
         justify={page > 1 ? "space-between" : "end"}
