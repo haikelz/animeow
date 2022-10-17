@@ -8,17 +8,8 @@ const DetailMangaSection = ({ data }: DetailManga) => {
       <Text textAlign="center" mt="2" fontWeight="bold">
         {data.title_japanese}
       </Text>
-      <Flex
-        flexDir={{ base: "column", lg: "row" }}
-        justify="center"
-        mt="10"
-        gap="6"
-      >
-        <Image
-          src={data.images.webp.large_image_url}
-          alt={data.title}
-          rounded="lg"
-        />
+      <Flex flexDir={{ base: "column", lg: "row" }} justify="center" mt="10" gap="6">
+        <Image src={data.images.webp.large_image_url} alt={data.title} rounded="lg" />
         <Box w={{ base: "100%", lg: "40%" }}>
           <Text fontSize="xl" fontWeight="semibold">
             {data.chapters && `Chapters: ${data.chapters}`}
@@ -29,13 +20,7 @@ const DetailMangaSection = ({ data }: DetailManga) => {
           <Text fontSize="xl" fontWeight="semibold">
             Status: {data.status}
           </Text>
-          <Text
-            mt="3"
-            textAlign="justify"
-            fontWeight="medium"
-            fontSize="lg"
-            letterSpacing="wide"
-          >
+          <Text mt="3" textAlign="justify" fontWeight="medium" fontSize="lg" letterSpacing="wide">
             <b>Synopsis: </b>
             {data.synopsis.replace("[Written by MAL Rewrite]", "")}
           </Text>

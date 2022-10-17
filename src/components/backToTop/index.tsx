@@ -1,12 +1,12 @@
-import { useScroll } from "src/hooks/useScroll";
 import { backToTopAnimation } from "src/utils/animation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@chakra-ui/react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
 import { LinkRef, OffsetTop } from "src/interfaces";
+import { useScroll } from "src/hooks/useScroll";
 
 const BackToTop = ({ linkRef }: LinkRef) => {
-  const [scroll] = useScroll();
+  const scroll: number = useScroll();
 
   const handleClick = <T extends OffsetTop>(ref: T) => {
     window.scrollTo({
@@ -22,11 +22,8 @@ const BackToTop = ({ linkRef }: LinkRef) => {
     <AnimatePresence key={height}>
       {scroll > height && (
         <motion.div {...backToTopAnimation}>
-          <Button
-            colorScheme="blue"
-            onClick={() => handleClick(linkRef.current)}
-          >
-            <ArrowUpIcon />
+          <Button colorScheme="blue" onClick={() => handleClick(linkRef.current)}>
+            <ArrowUpIcon fontSize={24} />
           </Button>
         </motion.div>
       )}

@@ -8,7 +8,7 @@ import DetailMangaSection from "src/components/detail/mangaSection";
 
 const DetailManga = () => {
   const router: NextRouter = useRouter();
-  const id: string | string[] | undefined = router.query.id;
+  const { id } = router.query;
 
   const { data, isLoading, isError } = useFetch(`/manga/${id}`);
 

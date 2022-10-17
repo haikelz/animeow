@@ -1,10 +1,4 @@
-import {
-  Text,
-  Flex,
-  Box,
-  useColorModeValue,
-  Highlight,
-} from "@chakra-ui/react";
+import { Text, Flex, Box, useColorModeValue, Highlight } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { FilteredDataAnime } from "src/interfaces";
 import Link from "next/link";
@@ -48,27 +42,18 @@ const ListAnimeCard = ({ filteredData, search }: FilteredDataAnime) => {
               </Text>
               <Text fontWeight="bold" fontSize="2xl">
                 {search
-                  ? reactStringReplace(
-                      animeList.title,
-                      search,
-                      (match: string, index: number) => (
-                        <Highlight
-                          query={match}
-                          key={index++}
-                          styles={{ px: "0.5", bg: "orange.100" }}
-                        >
-                          {match}
-                        </Highlight>
-                      )
-                    )
+                  ? reactStringReplace(animeList.title, search, (match: string, index: number) => (
+                      <Highlight query={match} key={index + 1} styles={{ bg: "orange.100" }}>
+                        {match}
+                      </Highlight>
+                    ))
                   : animeList.title}
               </Text>
               <Text fontSize="lg" fontWeight="semibold">
                 {`${
                   animeList.season === null
                     ? ""
-                    : animeList.season.charAt(0).toUpperCase() +
-                      `${animeList.season}`.slice(1)
+                    : animeList.season[0].toUpperCase() + `${animeList.season}`.slice(1)
                 }`}
                 {animeList.year && `, ${animeList.year}`}
               </Text>

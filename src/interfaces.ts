@@ -108,8 +108,7 @@ export interface LinkRef {
   };
 }
 
-export interface Event {
-  target: {
-    value: string;
-  };
+export interface KeydownEvent {
+  shiftKey: boolean;
+  key: string;
 }

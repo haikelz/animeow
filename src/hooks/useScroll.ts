@@ -24,5 +24,5 @@ export const useScroll = () => {
     };
   }, [handleScroll]);
 
-  return [scroll, setScroll] as const;
+  return scroll;
 };

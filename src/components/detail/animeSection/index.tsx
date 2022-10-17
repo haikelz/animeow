@@ -8,17 +8,8 @@ const DetailAnimeSection = ({ data }: DetailAnime) => {
       <Text textAlign="center" mt="2" fontWeight="bold">
         {data.title_japanese}
       </Text>
-      <Flex
-        flexDir={{ base: "column", lg: "row" }}
-        justify="center"
-        mt="10"
-        gap="6"
-      >
-        <Image
-          src={data.images.webp.large_image_url}
-          alt={data.title}
-          rounded="lg"
-        />
+      <Flex flexDir={{ base: "column", lg: "row" }} justify="center" mt="10" gap="6">
+        <Image src={data.images.webp.large_image_url} alt={data.title} rounded="lg" />
         <Text
           textAlign="justify"
           fontWeight="medium"
@@ -30,11 +21,7 @@ const DetailAnimeSection = ({ data }: DetailAnime) => {
         </Text>
       </Flex>
       {data.trailer.embed_url && (
-        <Box
-          mt="14"
-          w={{ base: "full", md: "73.2%" }}
-          h={{ base: "250px", md: "500px" }}
-        >
+        <Box mt="14" w={{ base: "full", md: "73.2%" }} h={{ base: "250px", md: "500px" }}>
           <Heading mb="3">Trailer</Heading>
           <iframe width="100%" height="100%" src={data.trailer.embed_url} />
         </Box>

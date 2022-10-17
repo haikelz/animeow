@@ -1,3 +1,4 @@
+import { useReducerAtom } from "jotai/utils";
 import { memo, useState } from "react";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
@@ -15,25 +16,37 @@ import ListAnimeCard from "src/components/listCard/anime";
 import NotFoundInput from "src/components/notFoundInput";
 import ListMangaCard from "src/components/listCard/manga";
 
-type Value = { title: string; name: string };
+type Value = {
+  title: string;
+  name: string;
+};
+
+type Action = {
+  name: string;
+};
+
+const typeReducer = (prev: string, action: Action) => {
+  switch (action.name) {
+    case "manga":
+      return "manga";
+
+    case "anime":
+      return "anime";
+
+    default:
+      throw new Error("Unknown action type");
+  }
+};
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useAtom(pageAnimeAtom);
-  const [type, setType] = useAtom(typeAtom);
+  const [type, dispatch] = useReducerAtom(typeAtom, typeReducer);
 
   const { data, isLoading, isError } = useFetch(`/top/${type}?page=${page}`);
 
   if (isLoading) return <Loading />;
   if (isError) return <ErrorPage />;
-
-  const anime = () => {
-    setType("anime");
-  };
-
-  const manga = () => {
-    setType("manga");
-  };
 
   const filteredData = data.filter((value: Value) => {
     if (search === "") {
@@ -47,8 +60,8 @@ const Home: NextPage = () => {
     <Layout title="Animeow">
       <SearchBar setSearch={setSearch} />
       <Flex justify="center" alignItems="center" gap="4" pt="4">
-        <Button onClick={anime}>Anime</Button>
-        <Button onClick={manga}>Manga</Button>
+        <Button onClick={() => dispatch({ name: "anime" })}>Anime</Button>
+        <Button onClick={() => dispatch({ name: "manga" })}>Manga</Button>
       </Flex>
       {filteredData.length ? (
         <Grid
@@ -69,11 +82,7 @@ const Home: NextPage = () => {
       ) : (
         <NotFoundInput type={type === "anime" ? "Anime" : "Manga"} />
       )}
-      <Flex
-        justify={page > 1 ? "space-between" : "end"}
-        alignItems="center"
-        w="full"
-      >
+      <Flex justify={page > 1 ? "space-between" : "end"} alignItems="center" w="full">
         {page > 1 && <PreviousButton page={page} setPage={setPage} />}
         {page < 756 && <NextButton page={page} setPage={setPage} />}
       </Flex>

@@ -1,10 +1,4 @@
-import {
-  Text,
-  Box,
-  Flex,
-  useColorModeValue,
-  Highlight,
-} from "@chakra-ui/react";
+import { Text, Box, Flex, useColorModeValue, Highlight } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { FilteredDataManga } from "src/interfaces";
 import Image from "next/image";
@@ -48,25 +42,16 @@ const ListMangaCard = ({ filteredData, search }: FilteredDataManga) => {
               </Text>
               <Text fontWeight="bold" fontSize="2xl">
                 {search
-                  ? reactStringReplace(
-                      mangaList.title,
-                      search,
-                      (match: string, index: number) => (
-                        <Highlight
-                          key={index++}
-                          query={match}
-                          styles={{ px: 0.5, bg: "red.100" }}
-                        >
-                          {match}
-                        </Highlight>
-                      )
-                    )
+                  ? reactStringReplace(mangaList.title, search, (match: string, index: number) => (
+                      <Highlight key={index++} query={match} styles={{ px: 0.5, bg: "red.100" }}>
+                        {match}
+                      </Highlight>
+                    ))
                   : mangaList.title}
               </Text>
               <Box mt="1.5">
                 <Text fontWeight="medium">
-                  {mangaList.chapters &&
-                    `Total Chapters: ${mangaList.chapters}`}
+                  {mangaList.chapters && `Total Chapters: ${mangaList.chapters}`}
                 </Text>
                 <Text fontWeight="medium">
                   {mangaList.volumes && `Total Volumes: ${mangaList.volumes}`}

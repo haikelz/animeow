@@ -6,15 +6,7 @@ const Header = () => {
   const bg: string | string = useColorModeValue("gray.200", "gray.900");
 
   return (
-    <Flex
-      w="full"
-      maxW="full"
-      justify="space-between"
-      px="4"
-      py="2"
-      bg={bg}
-      alignItems="center"
-    >
+    <Flex w="full" maxW="full" justify="space-between" px="4" py="2" bg={bg} alignItems="center">
       <Link href="/" passHref>
         <Text
           fontWeight="bold"

@@ -8,8 +8,7 @@ import DetailAnimeSection from "src/components/detail/animeSection";
 
 const DetailAnime = () => {
   const router: NextRouter = useRouter();
-  const id: string | string[] | undefined = router.query.id;
-
+  const { id } = router.query;
   const { data, isLoading, isError } = useFetch(`/anime/${id?.toString()}`);
 
   if (isLoading) return <Loading />;
