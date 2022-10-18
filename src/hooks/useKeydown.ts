@@ -1,12 +1,7 @@
-import { MutableRefObject, useCallback, useEffect } from "react";
-import { KeydownEvent } from "src/interfaces";
+import { useCallback, useEffect } from "react";
+import { Keydown, KeydownEvent } from "src/interfaces";
 
-export const useKeydown = <T extends MutableRefObject<string | any>>(
-  ref: T,
-  isShiftKey: boolean,
-  key1: string,
-  key2: string
-) => {
+export const useKeydown = <T extends Keydown>({ ref, isShiftKey, key1, key2 }: T) => {
   const handleKeydown = useCallback(
     <T extends KeydownEvent>(event: T) => {
       if (event.shiftKey === isShiftKey && event.key === key1) {
@@ -24,4 +19,11 @@ export const useKeydown = <T extends MutableRefObject<string | any>>(
     document.addEventListener("keydown", handleKeydown, true);
     return () => document.removeEventListener("keydown", handleKeydown);
   }, [handleKeydown]);
+
+  return {
+    ref: ref,
+    isShiftKey: isShiftKey,
+    key1: key1,
+    key2: key2,
+  };
 };

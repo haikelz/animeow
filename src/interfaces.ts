@@ -1,5 +1,5 @@
 import { SetStateAction } from "jotai";
-import { ReactNode } from "react";
+import { MutableRefObject, ReactNode } from "react";
 
 export interface Children {
   children: ReactNode[] | JSX.Element;
@@ -106,6 +106,13 @@ export interface LinkRef {
   linkRef: {
     current: any;
   };
+}
+
+export interface Keydown {
+  ref: MutableRefObject<string | any>;
+  isShiftKey: boolean;
+  key1: string;
+  key2: string;
 }
 
 export interface KeydownEvent {

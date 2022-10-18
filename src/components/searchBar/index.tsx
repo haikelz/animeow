@@ -8,7 +8,7 @@ type SetSearch = {
 
 const SearchBar = ({ setSearch }: SetSearch) => {
   const ref = useRef<string | any>("");
-  const keydown = useKeydown(ref, true, "Enter", "Escape");
+  useKeydown({ ref: ref, isShiftKey: true, key1: "Enter", key2: "Escape" });
 
   return (
     <>
