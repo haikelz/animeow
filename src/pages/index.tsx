@@ -1,20 +1,18 @@
-import { useReducerAtom } from "jotai/utils";
-import { memo, useState } from "react";
+import { useFetch } from "@/hooks/useFetch";
+import { pageAnimeAtom, typeAtom } from "@/store";
+import { NextButton, PreviousButton } from "@/ui/buttons";
+import ListAnimeCard from "@/ui/cards/CardAnime";
+import ListMangaCard from "@/ui/cards/CardManga";
+import { SearchBar } from "@/ui/input/SearchBar";
+import Layout from "@/ui/layout";
+import NotFoundInput from "@/ui/messages/NotFoundInput";
+import ErrorPage from "@/ui/suspense/Error";
+import Loading from "@/ui/suspense/Loading";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
-import { useFetch } from "src/hooks/useFetch";
-import { pageAnimeAtom } from "src/store";
-import { typeAtom } from "src/store";
+import { useReducerAtom } from "jotai/utils";
 import type { NextPage } from "next";
-import ErrorPage from "../components/error";
-import Layout from "../components/layout";
-import Loading from "../components/loading";
-import SearchBar from "src/components/searchBar";
-import PreviousButton from "src/components/previousButton";
-import NextButton from "src/components/nextButton";
-import ListAnimeCard from "src/components/listCard/anime";
-import NotFoundInput from "src/components/notFoundInput";
-import ListMangaCard from "src/components/listCard/manga";
+import { memo, useState } from "react";
 
 type Value = {
   title: string;
@@ -25,7 +23,7 @@ type Action = {
   name: string;
 };
 
-const typeReducer = (prev: string, action: Action) => {
+const reducerType = (prev: string, action: Action) => {
   switch (action.name) {
     case "manga":
       return "manga";
@@ -41,7 +39,7 @@ const typeReducer = (prev: string, action: Action) => {
 const Home: NextPage = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useAtom(pageAnimeAtom);
-  const [type, dispatch] = useReducerAtom(typeAtom, typeReducer);
+  const [type, dispatch] = useReducerAtom(typeAtom, reducerType);
 
   const { data, isLoading, isError } = useFetch(`/top/${type}?page=${page}`);
 

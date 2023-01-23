@@ -1,6 +1,6 @@
 import { Text, Box, Flex, useColorModeValue, Highlight } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
-import { FilteredDataManga } from "src/interfaces";
+import { FilteredDataManga } from "@/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import reactStringReplace from "react-string-replace";

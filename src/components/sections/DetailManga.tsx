@@ -1,7 +1,7 @@
-import { DetailManga } from "src/interfaces";
+import { DetailManga } from "@/interfaces";
 import { Flex, Text, Heading, Image, Box } from "@chakra-ui/react";
 
-const DetailMangaSection = ({ data }: DetailManga) => {
+const DetailManga = ({ data }: DetailManga) => {
   return (
     <Flex justify="center" alignItems="center" flexDir="column">
       <Heading textAlign="center">{data.title}</Heading>
@@ -30,4 +30,4 @@ const DetailMangaSection = ({ data }: DetailManga) => {
   );
 };
 
-export default DetailMangaSection;
+export default DetailManga;

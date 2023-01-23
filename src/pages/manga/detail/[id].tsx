@@ -1,12 +1,12 @@
+import { useFetch } from "@/hooks/useFetch";
+import DetailManga from "@/sections/DetailManga";
+import Layout from "@/ui/layout";
+import ErrorPage from "@/ui/suspense/Error";
+import Loading from "@/ui/suspense/Loading";
 import { NextRouter, useRouter } from "next/router";
-import { useFetch } from "src/hooks/useFetch";
 import { memo } from "react";
-import Layout from "src/components/layout";
-import Loading from "src/components/loading";
-import ErrorPage from "src/components/error";
-import DetailMangaSection from "src/components/detail/mangaSection";
 
-const DetailManga = () => {
+const DetailMangaPage = () => {
   const router: NextRouter = useRouter();
   const { id } = router.query;
 
@@ -17,9 +17,9 @@ const DetailManga = () => {
 
   return (
     <Layout title={data.title}>
-      <DetailMangaSection data={data} />
+      <DetailManga data={data} />
     </Layout>
   );
 };
 
-export default memo(DetailManga);
+export default memo(DetailMangaPage);

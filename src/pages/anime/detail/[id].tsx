@@ -1,12 +1,12 @@
+import { useFetch } from "@/hooks/useFetch";
+import DetailAnime from "@/sections/DetailAnime";
+import Layout from "@/ui/layout";
+import ErrorPage from "@/ui/suspense/Error";
+import Loading from "@/ui/suspense/Loading";
 import { NextRouter, useRouter } from "next/router";
-import { useFetch } from "src/hooks/useFetch";
 import { memo } from "react";
-import Layout from "src/components/layout";
-import Loading from "src/components/loading";
-import ErrorPage from "src/components/error";
-import DetailAnimeSection from "src/components/detail/animeSection";
 
-const DetailAnime = () => {
+const DetailAnimePage = () => {
   const router: NextRouter = useRouter();
   const { id } = router.query;
   const { data, isLoading, isError } = useFetch(`/anime/${id?.toString()}`);
@@ -16,9 +16,9 @@ const DetailAnime = () => {
 
   return (
     <Layout title={data.title}>
-      <DetailAnimeSection data={data} />
+      <DetailAnime data={data} />
     </Layout>
   );
 };
 
-export default memo(DetailAnime);
+export default memo(DetailAnimePage);

@@ -1,17 +1,8 @@
+import Layout from "@/ui/layout";
 import { Stack, Text } from "@chakra-ui/react";
-import { NextRouter, useRouter } from "next/router";
-import { memo, useEffect } from "react";
-import Layout from "src/components/layout";
+import { memo } from "react";
 
 const NotFoundPage = () => {
-  const router: NextRouter = useRouter();
-
-  useEffect(() => {
-    setTimeout(() => {
-      router.push("/");
-    }, 5000);
-  }, [router]);
-
   return (
     <Layout title="Not Found">
       <Stack>

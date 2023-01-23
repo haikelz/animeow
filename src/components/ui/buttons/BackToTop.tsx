@@ -1,11 +1,11 @@
-import { backToTopAnimation } from "src/utils/animation";
+import { backToTopAnimation } from "@/lib/utils/animation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@chakra-ui/react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
-import { LinkRef, OffsetTop } from "src/interfaces";
-import { useScroll } from "src/hooks/useScroll";
+import { LinkRef, OffsetTop } from "@/interfaces";
+import { useScroll } from "@/hooks/useScroll";
 
-const BackToTop = ({ linkRef }: LinkRef) => {
+export const BackToTop = ({ linkRef }: LinkRef) => {
   const scroll: number = useScroll();
 
   const handleClick = <T extends OffsetTop>(ref: T) => {
@@ -30,5 +30,3 @@ const BackToTop = ({ linkRef }: LinkRef) => {
     </AnimatePresence>
   );
 };
-
-export default BackToTop;

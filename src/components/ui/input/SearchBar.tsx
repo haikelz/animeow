@@ -1,12 +1,12 @@
 import { Box, Input, Kbd } from "@chakra-ui/react";
 import { useRef } from "react";
-import { useKeydown } from "src/hooks/useKeydown";
+import { useKeydown } from "@/hooks/useKeydown";
 
 type SetSearch = {
   setSearch: (value: string) => void;
 };
 
-const SearchBar = ({ setSearch }: SetSearch) => {
+export const SearchBar = ({ setSearch }: SetSearch) => {
   const ref = useRef<string | any>("");
   useKeydown({ ref: ref, isShiftKey: true, key1: "Enter", key2: "Escape" });
 
@@ -30,5 +30,3 @@ const SearchBar = ({ setSearch }: SetSearch) => {
     </>
   );
 };
-
-export default SearchBar;
