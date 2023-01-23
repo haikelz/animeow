@@ -29,8 +29,8 @@ const ListMangaCard = ({ filteredData, search }: FilteredDataManga) => {
             <Image
               src={mangaList.images.webp.image_url}
               alt={mangaList.mal_id.toString()}
-              width="200px"
-              height="250px"
+              width={200}
+              height={250}
             />
             <Box px="4" py="2.5">
               <Flex alignItems="center" gap="2">

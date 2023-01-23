@@ -29,8 +29,8 @@ const ListAnimeCard = ({ filteredData, search }: FilteredDataAnime) => {
             <Image
               src={animeList.images.webp.image_url}
               alt={animeList.mal_id}
-              width="200px"
-              height="250px"
+              width={200}
+              height={250}
             />
             <Box px="4" py="2.5">
               <Flex alignItems="center" gap="2">
