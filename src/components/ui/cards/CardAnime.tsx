@@ -1,8 +1,7 @@
-import { Text, Flex, Box, useColorModeValue, Highlight } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
 import { FilteredDataAnime } from "@/interfaces";
+import { StarIcon } from "@chakra-ui/icons";
+import { Box, Flex, Highlight, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
-import Image from "next/image";
 import reactStringReplace from "react-string-replace";
 
 type Bg = string | string;
@@ -25,12 +24,13 @@ const ListAnimeCard = ({ filteredData, search }: FilteredDataAnime) => {
             overflow="hidden"
             transition="0.2s ease-in-out"
             w="full"
+            h="full"
           >
             <Image
               src={animeList.images.webp.image_url}
               alt={animeList.mal_id}
-              width={200}
-              height={250}
+              width="500px"
+              height="250px"
             />
             <Box px="4" py="2.5">
               <Flex alignItems="center" gap="2">

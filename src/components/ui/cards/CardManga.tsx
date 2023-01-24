@@ -1,7 +1,6 @@
-import { Text, Box, Flex, useColorModeValue, Highlight } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
 import { FilteredDataManga } from "@/interfaces";
-import Image from "next/image";
+import { StarIcon } from "@chakra-ui/icons";
+import { Box, Flex, Highlight, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import reactStringReplace from "react-string-replace";
 
@@ -25,11 +24,12 @@ const ListMangaCard = ({ filteredData, search }: FilteredDataManga) => {
             flexDir="column"
             overflow="hidden"
             w="full"
+            h="full"
           >
             <Image
               src={mangaList.images.webp.image_url}
               alt={mangaList.mal_id.toString()}
-              width={200}
+              width={500}
               height={250}
             />
             <Box px="4" py="2.5">

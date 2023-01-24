@@ -1,8 +1,8 @@
 import { useFetch } from "@/hooks/useFetch";
 import { pageAnimeAtom, typeAtom } from "@/store";
 import { NextButton, PreviousButton } from "@/ui/buttons";
-import ListAnimeCard from "@/ui/cards/CardAnime";
-import ListMangaCard from "@/ui/cards/CardManga";
+import AnimeCard from "@/ui/cards/CardAnime";
+import MangaCard from "@/ui/cards/CardManga";
 import { SearchBar } from "@/ui/input/SearchBar";
 import Layout from "@/ui/layout";
 import NotFoundInput from "@/ui/messages/NotFoundInput";
@@ -12,7 +12,7 @@ import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
 import { useReducerAtom } from "jotai/utils";
 import type { NextPage } from "next";
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 
 type Value = {
   title: string;
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
         <Button onClick={() => dispatch({ name: "anime" })}>Anime</Button>
         <Button onClick={() => dispatch({ name: "manga" })}>Manga</Button>
       </Flex>
-      {filteredData.length ? (
+      {data.length ? (
         <Grid
           py="6"
           templateColumns={{
@@ -72,9 +72,9 @@ const Home: NextPage = () => {
           gap="6"
         >
           {type === "anime" ? (
-            <ListAnimeCard search={search} filteredData={filteredData} />
+            <AnimeCard search={search} filteredData={filteredData} />
           ) : (
-            <ListMangaCard search={search} filteredData={filteredData} />
+            <MangaCard search={search} filteredData={filteredData} />
           )}
         </Grid>
       ) : (

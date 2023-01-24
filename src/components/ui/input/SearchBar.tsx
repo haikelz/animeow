@@ -18,7 +18,6 @@ export const SearchBar = ({ setSearch }: SetSearch) => {
         onChange={(event) => setSearch(event.target.value)}
         placeholder="Search...."
         fontWeight="semibold"
-        border="2px"
         mb={{ base: 0, md: 2 }}
         w={{ base: "full", md: "50%" }}
       />
