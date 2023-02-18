@@ -1,18 +1,12 @@
 import { SetStateAction } from "jotai";
-import { MutableRefObject, ReactNode } from "react";
+import { ReactNode } from "react";
 
-export interface Children {
-  children: ReactNode[] | JSX.Element;
+export interface ChildrenProps {
+  children: ReactNode;
   title: string;
 }
 
-export interface Context {
-  params: {
-    id: string;
-  };
-}
-
-export interface DetailAnime {
+export interface DetailAnimeProps {
   data: {
     title: string;
     title_japanese: string;
@@ -28,7 +22,7 @@ export interface DetailAnime {
   };
 }
 
-export interface DetailManga {
+export interface DetailMangaProps {
   data: {
     title: string;
     title_japanese: string;
@@ -44,78 +38,7 @@ export interface DetailManga {
   };
 }
 
-export interface Page {
+export interface PaginationProps {
   page: number;
   setPage: (page: SetStateAction<number>) => void;
-}
-
-export interface FilteredDataManga {
-  filteredData: [
-    mangaList: {
-      images: {
-        webp: {
-          image_url: string;
-        };
-      };
-      score: number;
-      titles: [
-        {
-          title: string;
-        }
-      ];
-      mal_id: string;
-      title: string | any | undefined;
-      title_japanese: string;
-      year: string;
-      rank: string;
-      chapters: string;
-      volumes: string;
-      status: string;
-    }
-  ];
-  search: string;
-}
-
-export interface FilteredDataAnime {
-  filteredData: [
-    animeList: {
-      images: {
-        webp: {
-          image_url: string;
-        };
-      };
-      score: number;
-      mal_id: string;
-      title: string | any | undefined;
-      title_japanese: string;
-      season: string;
-      year: string;
-      status: string;
-      rank: string;
-      episodes: string;
-    }
-  ];
-  search: string;
-}
-
-export interface OffsetTop {
-  offsetTop: any;
-}
-
-export interface LinkRef {
-  linkRef: {
-    current: any;
-  };
-}
-
-export interface Keydown {
-  ref: MutableRefObject<string | any>;
-  isShiftKey: boolean;
-  key1: string;
-  key2: string;
-}
-
-export interface KeydownEvent {
-  shiftKey: boolean;
-  key: string;
 }

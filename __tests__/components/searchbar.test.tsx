@@ -1,4 +1,4 @@
-import { SearchBar } from "@/ui/input/SearchBar";
+import { SearchBar } from "~ui/input/SearchBar";
 import { fireEvent, render } from "@testing-library/react";
 
 describe("Search Bar", () => {

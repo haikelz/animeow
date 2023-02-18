@@ -1,6 +1,6 @@
 import { Box, Input, Kbd } from "@chakra-ui/react";
-import { useRef } from "react";
-import { useKeydown } from "@/hooks/useKeydown";
+import { memo, useRef } from "react";
+import { useKeydown } from "~hooks/useKeydown";
 
 type SetSearch = {
   setSearch: (value: string) => void;
@@ -29,3 +29,5 @@ export const SearchBar = ({ setSearch }: SetSearch) => {
     </>
   );
 };
+
+memo(SearchBar);

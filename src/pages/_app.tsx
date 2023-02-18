@@ -1,4 +1,4 @@
-import Theme from "@/lib/utils/theme";
+import Theme from "~lib/utils/theme";
 import { ChakraProvider } from "@chakra-ui/react";
 import "@fontsource/montserrat/300.css";
 import "@fontsource/montserrat/400.css";

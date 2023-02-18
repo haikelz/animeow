@@ -14,6 +14,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",
     "@chakra-ui/react": "^2.4.9",
+    "@chakra-ui/system": "^2.5.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/montserrat": "^4.5.14",
@@ -28,9 +29,11 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@types/jest": "^29.4.0",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "@types/testing-library__jest-dom": "^5.14.5",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
     "eslint-config-prettier": "^8.6.0",

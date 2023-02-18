@@ -1,18 +1,18 @@
-import { useFetch } from "@/hooks/useFetch";
-import { pageAnimeAtom, typeAtom } from "@/store";
-import { NextButton, PreviousButton } from "@/ui/buttons";
-import AnimeCard from "@/ui/cards/CardAnime";
-import MangaCard from "@/ui/cards/CardManga";
-import { SearchBar } from "@/ui/input/SearchBar";
-import Layout from "@/ui/layout";
-import NotFoundInput from "@/ui/messages/NotFoundInput";
-import ErrorPage from "@/ui/suspense/Error";
-import Loading from "@/ui/suspense/Loading";
 import { Button, Flex, Grid } from "@chakra-ui/react";
 import { useAtom } from "jotai";
 import { useReducerAtom } from "jotai/utils";
 import type { NextPage } from "next";
-import { memo, useMemo, useState } from "react";
+import { memo, useState } from "react";
+import { useFetch } from "~hooks/useFetch";
+import { pageAnimeAtom, typeAtom } from "~store";
+import { NextButton, PreviousButton } from "~ui/buttons";
+import AnimeCard from "~ui/cards/CardAnime";
+import MangaCard from "~ui/cards/CardManga";
+import { SearchBar } from "~ui/input/SearchBar";
+import Layout from "~ui/layout";
+import NotFoundInput from "~ui/messages/NotFoundInput";
+import ErrorPage from "~ui/suspense/Error";
+import Loading from "~ui/suspense/Loading";
 
 type Value = {
   title: string;
@@ -37,9 +37,17 @@ const reducerType = (prev: string, action: Action) => {
 };
 
 const Home: NextPage = () => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   const [page, setPage] = useAtom(pageAnimeAtom);
   const [type, dispatch] = useReducerAtom(typeAtom, reducerType);
+  const [name, setName] = useAtom(typeAtom);
+
+  const choice = ["anime", "manga"];
+
+  const handleClick = (name: string) => {
+    dispatch({ name: name });
+    setName(name);
+  };
 
   const { data, isLoading, isError } = useFetch(`/top/${type}?page=${page}`);
 
@@ -58,10 +66,17 @@ const Home: NextPage = () => {
     <Layout title="Animeow">
       <SearchBar setSearch={setSearch} />
       <Flex justify="center" alignItems="center" gap="4" pt="4">
-        <Button onClick={() => dispatch({ name: "anime" })}>Anime</Button>
-        <Button onClick={() => dispatch({ name: "manga" })}>Manga</Button>
+        {choice.map((value, index) => (
+          <Button
+            key={index + 1}
+            colorScheme={name === value ? "blue" : "gray"}
+            onClick={() => handleClick(value)}
+          >
+            {value[0].toUpperCase() + value.substring(1)}
+          </Button>
+        ))}
       </Flex>
-      {data.length ? (
+      {filteredData.length ? (
         <Grid
           py="6"
           templateColumns={{

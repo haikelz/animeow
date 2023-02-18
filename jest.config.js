@@ -1,7 +1,7 @@
 const nextJest = require("next/jest");
 
 const createJestConfig = nextJest({
-  dir: "./src/",
+  dir: "./",
 });
 
 /** @type {import('jest').Config} */
@@ -11,13 +11,11 @@ const customJestConfig = {
 
   // absolute import
   moduleNameMapper: {
-    "^@/ui/(.*)$": "src/components/ui/$1",
-    "^@/sections/(.*)$": "src/components/sections/$1",
-    "^@/pages/(.*)$": "src/pages/$1",
-    "^@/lib/(.*)$": "src/lib/$1",
-    "^@/hooks/(.*)$": "src/hooks/$1",
-    "^@/store$": "src/store",
+    "^~ui/(.*)$": "src/components/ui/$1",
+    "^~sections/(.*)$": "src/components/sections/$1",
+    "^~(.*)$": "src/$1",
   },
+  setupFilesAfterEnv: ["./setupTests.ts"],
 };
 
 module.exports = createJestConfig(customJestConfig);

@@ -1,6 +1,6 @@
+import { PaginationProps } from "~interfaces";
 import { Button } from "@chakra-ui/react";
-import { Page } from "@/interfaces";
 
-export const PreviousButton = ({ page, setPage }: Page) => {
+export const PreviousButton = ({ page, setPage }: PaginationProps) => {
   return <Button onClick={() => setPage(page - 1)}>Previous</Button>;
 };

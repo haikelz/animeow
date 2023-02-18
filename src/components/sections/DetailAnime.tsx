@@ -1,7 +1,7 @@
-import { DetailAnime } from "@/interfaces";
-import { Flex, Heading, Text, Image, Box } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { DetailAnimeProps } from "~interfaces";
 
-const DetailAnime = ({ data }: DetailAnime) => {
+const DetailAnime = ({ data }: DetailAnimeProps) => {
   return (
     <Flex pb="20" justify="center" alignItems="center" flexDir="column">
       <Heading textAlign="center">{data.title}</Heading>

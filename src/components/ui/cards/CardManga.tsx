@@ -1,4 +1,3 @@
-import { FilteredDataManga } from "@/interfaces";
 import { StarIcon } from "@chakra-ui/icons";
 import { Box, Flex, Highlight, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
@@ -6,7 +5,34 @@ import reactStringReplace from "react-string-replace";
 
 type Bg = string | string;
 
-const ListMangaCard = ({ filteredData, search }: FilteredDataManga) => {
+interface FilteredDataMangaProps {
+  filteredData: [
+    mangaList: {
+      images: {
+        webp: {
+          image_url: string;
+        };
+      };
+      score: number;
+      titles: [
+        {
+          title: string;
+        }
+      ];
+      mal_id: string;
+      title: string | any | undefined;
+      title_japanese: string;
+      year: string;
+      rank: string;
+      chapters: string;
+      volumes: string;
+      status: string;
+    }
+  ];
+  search: string;
+}
+
+const ListMangaCard = ({ filteredData, search }: FilteredDataMangaProps) => {
   const bg: Bg = useColorModeValue("twitter.300", "gray.700");
   const bgHover: Bg = useColorModeValue("twitter.400", "twitter.600");
 

@@ -1,11 +1,11 @@
-import { Children } from "@/interfaces";
-import Header from "@/sections/Header";
-import { BackToTop } from "@/ui/buttons";
+import { ChildrenProps } from "~interfaces";
+import Header from "~sections/Header";
+import { BackToTop } from "~ui/buttons";
 import { Box, Container, Flex } from "@chakra-ui/react";
 import Head from "next/head";
 import { useRef } from "react";
 
-const Layout = ({ children, title }: Children) => {
+const Layout = ({ children, title }: ChildrenProps) => {
   const ref = useRef<null | HTMLDivElement>(null);
 
   return (

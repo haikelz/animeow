@@ -1,6 +1,6 @@
-import { DarkModeButton } from "@/ui/buttons";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
+import { DarkModeButton } from "~ui/buttons";
 
 const Header = () => {
   const bg: string | string = useColorModeValue("gray.200", "gray.900");

@@ -1,10 +1,31 @@
-import { FilteredDataAnime } from "@/interfaces";
 import { StarIcon } from "@chakra-ui/icons";
 import { Box, Flex, Highlight, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import reactStringReplace from "react-string-replace";
 
 type Bg = string | string;
+
+interface FilteredDataAnime {
+  filteredData: [
+    animeList: {
+      images: {
+        webp: {
+          image_url: string;
+        };
+      };
+      score: number;
+      mal_id: string;
+      title: string | any | undefined;
+      title_japanese: string;
+      season: string;
+      year: string;
+      status: string;
+      rank: string;
+      episodes: string;
+    }
+  ];
+  search: string;
+}
 
 const ListAnimeCard = ({ filteredData, search }: FilteredDataAnime) => {
   const bg: Bg = useColorModeValue("twitter.300", "gray.700");
@@ -53,7 +74,7 @@ const ListAnimeCard = ({ filteredData, search }: FilteredDataAnime) => {
                 {`${
                   animeList.season === null
                     ? ""
-                    : animeList.season[0].toUpperCase() + `${animeList.season}`.slice(1)
+                    : animeList.season[0].toUpperCase() + animeList.season.substring(1)
                 }`}
                 {animeList.year && `, ${animeList.year}`}
               </Text>

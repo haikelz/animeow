@@ -1,4 +1,4 @@
-import Layout from "@/ui/layout";
+import Layout from "~ui/layout";
 import { Stack, Text } from "@chakra-ui/react";
 import { memo } from "react";
 

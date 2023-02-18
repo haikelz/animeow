@@ -1,9 +1,20 @@
-import { useCallback, useEffect } from "react";
-import { Keydown, KeydownEvent } from "@/interfaces";
+import { MutableRefObject, useCallback, useEffect } from "react";
 
-export const useKeydown = <T extends Keydown>({ ref, isShiftKey, key1, key2 }: T) => {
+export interface KeydownProps {
+  ref: MutableRefObject<string | any>;
+  isShiftKey: boolean;
+  key1: string;
+  key2: string;
+}
+
+export interface KeydownEventProps {
+  shiftKey: boolean;
+  key: string;
+}
+
+export const useKeydown = <T extends KeydownProps>({ ref, isShiftKey, key1, key2 }: T) => {
   const handleKeydown = useCallback(
-    <T extends KeydownEvent>(event: T) => {
+    <T extends KeydownEventProps>(event: T) => {
       if (event.shiftKey === isShiftKey && event.key === key1) {
         ref.current?.focus();
       }

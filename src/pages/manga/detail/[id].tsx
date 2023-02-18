@@ -1,8 +1,8 @@
-import { useFetch } from "@/hooks/useFetch";
-import DetailManga from "@/sections/DetailManga";
-import Layout from "@/ui/layout";
-import ErrorPage from "@/ui/suspense/Error";
-import Loading from "@/ui/suspense/Loading";
+import { useFetch } from "~hooks/useFetch";
+import DetailManga from "~sections/DetailManga";
+import Layout from "~ui/layout";
+import ErrorPage from "~ui/suspense/Error";
+import Loading from "~ui/suspense/Loading";
 import { NextRouter, useRouter } from "next/router";
 import { memo } from "react";
 

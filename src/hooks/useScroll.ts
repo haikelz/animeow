@@ -1,15 +1,14 @@
+import { scrollAtom } from "~store";
 import { SetStateAction, useAtom } from "jotai";
-import { useCallback, useEffect } from "react";
 import { useAtomCallback } from "jotai/utils";
-import { scrollAtom } from "@/store";
+import { useCallback, useEffect } from "react";
 
-type HandleScroll = () => void;
 type Scroll = [number, (update: SetStateAction<number>) => void];
 
 export const useScroll = () => {
   const [scroll, setScroll]: Scroll = useAtom(scrollAtom);
 
-  const handleScroll: HandleScroll = useAtomCallback(
+  const handleScroll = useAtomCallback(
     useCallback(() => {
       const position = window.pageYOffset;
       setScroll(position);
